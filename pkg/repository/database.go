@@ -3,9 +3,10 @@ package repository
 import (
 	"log"
 
+	"github.com/AbdulrahmanDaud10/PaymentSystemBackEnd/pkg/api"
+	// Dialect for mysql database
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	//dialect for mysql database
 )
 
 // DatabaseConnection -> connection to Database
@@ -19,7 +20,7 @@ func DatabaseConnection() *gorm.DB {
 		return nil
 	}
 
-	// db.AutoMigrate(&model.User{}, &model.Accounts{}, &model.Order{})
+	db.AutoMigrate(&api.User{}, &api.BankAccount{}, &api.Product{})
 	return db
 
 }
